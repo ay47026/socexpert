@@ -1,0 +1,133 @@
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]="jobForm" (ngSubmit)="onFormSubmit(jobForm.value)">
+            <div class="form-group">
+                <label for="JobTitle">Job Title</label>
+                <input type="text" formControlName="JobTitle" id="JobTitle" class="form-control" />
+                <div lines="none" class="font-12 form-error" *ngIf="f.JobTitle.touched && f.JobTitle.errors">
+                    <span *ngIf="f.JobTitle.errors.required" class="text-danger">JobTitle is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="CompanyName">Company Name</label>
+                <input type="text" formControlName="CompanyName" id="CompanyName" class="form-control" />
+                <div lines="none" class="font-12 form-error" *ngIf="f.CompanyName.touched && f.CompanyName.errors">
+                    <span *ngIf="f.CompanyName.errors.required" class="text-danger"> Company Name is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="NumberOfPositions">Number of Positions</label>
+                <input type="text" formControlName="NumberOfPositions" id="NumberOfPositions" class="form-control" />
+                <div lines="none" class="font-12 form-error"
+                    *ngIf="f.NumberOfPositions.touched && f.NumberOfPositions.errors">
+                    <span *ngIf="f.NumberOfPositions.errors.required" class="text-danger">Number of Positions is
+                        required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Location">Location</label>
+                <input type="text" formControlName="Location" id="Location" class="form-control" />
+                <div lines="none" class="font-12 form-error" *ngIf="f.Location.touched && f.Location.errors">
+                    <span *ngIf="f.Location.errors.required" class="text-danger">Location is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="JoingType">Joining Type</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="JoingType" id="inlineRadio1"
+                            formControlName="JoingType" value="1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="JoingType" id="inlineRadio2"
+                            formControlName="JoingType" value="2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                </div>
+                <div lines="none" class="font-12 form-error" *ngIf="f.JoingType.touched && f.JoingType.errors">
+                    <span *ngIf="f.JoingType.errors.required" class="text-danger">Joining Type is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="MinExperience">Min Experience</label>
+                <select class="form-control" id="MinExperience" formControlName="MinExperience">
+                    <option *ngFor="let exp of experience; let i = index" [value]="exp.id">{{exp.values}}</option>
+                </select>
+                <div lines="none" class="font-12 form-error" *ngIf="f.MinExperience.touched && f.MinExperience.errors">
+                    <span *ngIf="f.MinExperience.errors.required" class="text-danger">Min Experience is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="MaxExperience">Max Experience</label>
+                <select class="form-control" id="MaxExperience" formControlName="MaxExperience">
+                    <option *ngFor="let exp of experience; let i = index" [value]="exp.id">{{exp.values}}</option>
+                </select>
+                <div lines="none" class="font-12 form-error" *ngIf="f.MaxExperience.touched && f.MaxExperience.errors">
+                    <span *ngIf="f.MaxExperience.errors.required" class="text-danger">Max Experience is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="MinSalaray">Minimum Salaray (in LPA)</label>
+                <input type="text" formControlName="MinSalaray" id="MinSalaray" class="form-control" />
+                <div lines="none" class="font-12 form-error" *ngIf="f.MinSalaray.touched && f.MinSalaray.errors">
+                    <span *ngIf="f.MinSalaray.errors.required" class="text-danger">Min Salaray is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="MaxSalary">Maximum Salary</label>
+                <input type="text" formControlName="MaxSalary" id="MaxSalary" class="form-control" />
+                <div lines="none" class="font-12 form-error" *ngIf="f.MaxSalary.touched && f.MaxSalary.errors">
+                    <span *ngIf="f.MaxSalary.errors.required" class="text-danger">Maximum Salary is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="JoiningIn">Min Experience</label>
+                <select class="form-control" id="JoiningIn" formControlName="JoiningIn">
+                    <option *ngFor="let exp of joining; let i = index" [value]="exp.id">{{exp.values}}</option>
+                </select>
+                <div lines="none" class="font-12 form-error" *ngIf="f.JoiningIn.touched && f.JoiningIn.errors">
+                    <span *ngIf="f.JoiningIn.errors.required" class="text-danger">Joining In is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="SkillsOrTools">Job Description</label>
+                <textarea rows="10" formControlName="SkillsOrTools" id="MaxSalary" class="form-control"></textarea>
+                <div lines="none" class="font-12 form-error" *ngIf="f.SkillsOrTools.touched && f.SkillsOrTools.errors">
+                    <span *ngIf="f.SkillsOrTools.errors.required" class="text-danger">Job description is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="RecruiterEmail">Recruiter Email</label>
+                <input type="email" formControlName="RecruiterEmail" id="RecruiterEmail" class="form-control" />
+                <div lines="none" class="font-12 form-error" *ngIf="f.RecruiterEmail.touched && f.RecruiterEmail.errors">
+                    <span *ngIf="f.RecruiterEmail.errors.required" class="text-danger">RecruiterEmail is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="RecuruiterMobile">Maximum Salary</label>
+                <input type="text" formControlName="RecuruiterMobile" id="RecuruiterMobile" class="form-control" />
+                <div lines="none" class="font-12 form-error" *ngIf="f.RecuruiterMobile.touched && f.RecuruiterMobile.errors">
+                    <span *ngIf="f.RecuruiterMobile.errors.required" class="text-danger">Recuruiter Mobile is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="LinkToJob">Link to Job</label>
+                <input type="text" formControlName="LinkToJob" id="LinkToJob" class="form-control" />
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" formControlName="IsRecruiterDetailsSharable"
+                    id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Is recruiter details sharable with others?</label>
+            </div>
+            <button type="submit" [disabled]="!jobForm.valid" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

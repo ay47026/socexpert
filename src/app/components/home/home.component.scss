@@ -1,0 +1,32 @@
+
+.filter-col{
+    position: sticky;
+    top:61px;
+    left: 0;
+    background-color: #E3E9F0;
+    z-index: 100;
+}
+.filter-col select{
+    background-color: #fff;
+}
+
+
+.btn-outline-secondary{
+    width: 110px;
+
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #e9630c;
+
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    font-weight: 500;
+    color: #e9630c;
+    transition: all .3s;
+}
+.btn-outline-secondary:hover{
+background-color: #e9630c;
+color: #fff;
+
+}

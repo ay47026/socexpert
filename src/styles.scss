@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap-scss/bootstrap.scss";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import '~ngx-toastr/toastr-bs4-alert';
+
+@import "variables";
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;600&family=Roboto:wght@400;700&display=swap');
+
+
+body {
+    min-height: 100vh;
+    padding-top: 56px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fbfbfb;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+}
+.single-listing {
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    .company-logo-outer {
+        height: 80px;
+        width: 80px;
+        position: relative;
+        left: -1rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 0.825rem;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    }
+.list-info {
+    color: #666;
+    i {
+        margin-right: 5px;
+        font-size: 0.825rem;
+    }
+    span {
+        display: inline-block;
+        margin-right: 10px;
+    }
+}
+}

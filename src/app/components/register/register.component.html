@@ -1,0 +1,162 @@
+<form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)" class="row p-4">
+    <div class="form-group col-md-6">
+        <label for="FirstName">First Name</label>
+        <input type="text" formControlName="FirstName" id="FirstName" class="form-control" />
+        <div lines="none" class="font-12 form-error" *ngIf="f.FirstName.touched && f.FirstName.errors">
+            <span *ngIf="f.FirstName.errors.required" class="text-danger">FirstName is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="LastName">Last Name</label>
+        <input type="text" formControlName="LastName" id="LastName" class="form-control" />
+        <div lines="none" class="font-12 form-error" *ngIf="f.LastName.touched && f.LastName.errors">
+            <span *ngIf="f.LastName.errors.required" class="text-danger">LastName is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="MobileNumber">Mobile Number</label>
+        <input type="number" name="MobileNumber" id="MobileNumber" formControlName="MobileNumber" class="form-control"
+            placeholder="MobileNumber">
+        <div lines="none" class="font-12 form-error" *ngIf="f.MobileNumber.touched && f.MobileNumber.errors">
+            <span *ngIf="f.MobileNumber.errors.required" class="text-danger">Mobile Number is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="Email">Email</label>
+        <input type="email" name="Email" id="Email" formControlName="Email" class="form-control"
+            placeholder="Email address">
+        <div lines="none" class="font-12 form-error" *ngIf="f.Email.touched && f.Email.errors">
+            <span *ngIf="f.Email.errors.required" class="text-danger">Email is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="Password">Password</label>
+        <input type="password" name="Password" formControlName="Password" id="Password" class="form-control">
+        <div lines="none" class="font-12 form-error" *ngIf="f.Password.touched && f.Password.errors">
+            <span *ngIf="f.Password.errors.required" class="text-danger">Password is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="ConfirmPassword">Confirm Password</label>
+        <input type="password" name="Password" formControlName="ConfirmPassword" id="ConfirmPassword"
+            class="form-control">
+        <div lines="none" class="font-12 form-error" *ngIf="f.ConfirmPassword.touched && f.ConfirmPassword.errors">
+            <span *ngIf="f.ConfirmPassword.errors.required" class="text-danger">Confirm Password is required</span>
+            <div *ngIf="f.ConfirmPassword.errors.confirmedValidator" class="text-danger">Password and Confirm Password
+                must be match.</div>
+
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="Gender">Gender</label>
+        <div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="Gender" id="inlineRadio1" formControlName="Gender"
+                    value="male">
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="Gender" id="inlineRadio2" formControlName="Gender"
+                    value="female">
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+        </div>
+        <div lines="none" class="font-12 form-error" *ngIf="f.Gender.touched && f.Gender.errors">
+            <span *ngIf="f.Gender.errors.required" class="text-danger">Gender is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="LinkedInURL">LinkedIn URL</label>
+        <input type="text" formControlName="LinkedInURL" id="LinkedInURL" class="form-control" />
+        <div lines="none" class="font-12 form-error" *ngIf="f.LinkedInURL.touched && f.LinkedInURL.errors">
+            <div *ngIf="f.LinkedInURL.errors.required" class="text-danger">LinkedIn URL is required</div>
+            <div *ngIf="f.LinkedInURL.errors.pattern" class="text-danger">Invalid URL</div>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="CurrentCompany">Current Company Name</label>
+        <input type="text" formControlName="CurrentCompany" id="CurrentCompany" class="form-control" />
+        <div lines="none" class="font-12 form-error" *ngIf="f.CurrentCompany.touched && f.CurrentCompany.errors">
+            <span *ngIf="f.CurrentCompany.errors.required" class="text-danger"> Current Company Name is
+                required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="CurrentJobTitle">Current Job Title</label>
+        <input type="text" formControlName="CurrentJobTitle" id="CurrentJobTitle" class="form-control" />
+        <div lines="none" class="font-12 form-error" *ngIf="f.CurrentJobTitle.touched && f.CurrentJobTitle.errors">
+            <span *ngIf="f.CurrentJobTitle.errors.required" class="text-danger"> Current Job Title is
+                required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="CurrentCTC">Current Salaray (in LPA)</label>
+        <input type="text" formControlName="CurrentCTC" id="CurrentCTC" class="form-control" />
+        <div lines="none" class="font-12 form-error" *ngIf="f.CurrentCTC.touched && f.CurrentCTC.errors">
+            <span *ngIf="f.CurrentCTC.errors.required" class="text-danger">Current Salary is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="ExpectedCTC">Expected Salary (in LPA)</label>
+        <input type="text" formControlName="ExpectedCTC" id="ExpectedCTC" class="form-control" />
+        <div lines="none" class="font-12 form-error" *ngIf="f.ExpectedCTC.touched && f.ExpectedCTC.errors">
+            <span *ngIf="f.ExpectedCTC.errors.required" class="text-danger">Expected Salary is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="CurrentJobLocation">Current Job Location</label>
+        <input type="text" formControlName="CurrentJobLocation" id="CurrentJobLocation" class="form-control" />
+        <div lines="none" class="font-12 form-error"
+            *ngIf="f.CurrentJobLocation.touched && f.CurrentJobLocation.errors">
+            <span *ngIf="f.CurrentJobLocation.errors.required" class="text-danger">Current Job Location is
+                required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="NoticePeriod">Notice Period</label>
+        <select class="form-control" id="NoticePeriod" formControlName="NoticePeriod">
+            <option *ngFor="let exp of noticeperiod; let i = index" [value]="exp.Id">{{exp.Value}}</option>
+        </select>
+        <div lines="none" class="font-12 form-error" *ngIf="f.NoticePeriod.touched && f.NoticePeriod.errors">
+            <span *ngIf="f.NoticePeriod.errors.required" class="text-danger">Min Experience is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="Experience">Experience</label>
+        <select class="form-control" id="Experience" formControlName="Experience">
+            <option *ngFor="let exp of experience; let i = index" [value]="exp.id">{{exp.values}}</option>
+        </select>
+        <div lines="none" class="font-12 form-error" *ngIf="f.Experience.touched && f.Experience.errors">
+            <span *ngIf="f.Experience.errors.required" class="text-danger">Experience is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="Batch">Are you SOC Experts Student? If yes Mention your batch</label>
+        <input type="text" formControlName="Batch" id="Batch" class="form-control" />
+    </div>
+    <div class="form-group col-md-6">
+        <label for="SkillsOrTools">JSkills/Tools</label>
+        <textarea rows="10" formControlName="SkillsOrTools" id="SkillsOrTools" class="form-control"></textarea>
+        <div lines="none" class="font-12 form-error" *ngIf="f.SkillsOrTools.touched && f.SkillsOrTools.errors">
+            <span *ngIf="f.SkillsOrTools.errors.required" class="text-danger">Skills/Tools is required</span>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="Certification">Certification</label>
+        <textarea rows="10" formControlName="Certification" id="Certification" class="form-control"></textarea>
+        <div lines="none" class="font-12 form-error" *ngIf="f.Certification.touched && f.Certification.errors">
+            <span *ngIf="f.Certification.errors.required" class="text-danger">Certification is required</span>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" formControlName="agreeTerms" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">I Agree for <a href="/terms-conditions"
+                    target="_blank">terms and conditions</a></label>
+        </div>
+    </div>
+    <div class="col-md-12 text-right">
+        <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary">Submit</button>
+    </div>
+</form>

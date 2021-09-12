@@ -1,0 +1,36 @@
+
+<div class="row">
+    <div class="col-md-6" *ngIf="detail">
+        <div class="d-flex">
+            <div class="flex-shrink-1 align-self-center pr-1">
+                <img [src]="detail.Logo" alt="" class="img-logo img-fluid">
+            </div>
+            <div>
+                <h2>{{detail.Title}}</h2>
+              <span>{{detail.Company}}</span> |  <span> {{detail.PostedDate}}</span>
+            </div>
+        </div>
+        <div class="preserve-lines" [innerHTML]="detail.Descritpion"></div>
+    </div>
+    <div class="col-md-6">
+        <div class="listing-outer" *ngIf="relatedListing">
+            <div *ngFor="let item of relatedListing; let i = index;" [routerLink]="['../detail', item.Id, item.Title ]"
+                class="single-listing p-2 d-flex mb-2">
+                <div class="flex-shrink-1 align-self-center">
+                    <div class="company-logo-outer d-flex">
+                        <img [src]="item.Logo" alt="" class="align-self-center img-logo img-fluid">
+                    </div>
+                </div>
+                <div class="pl-1 align-self-center">
+                    <h4>{{item.Title}}</h4>
+                    <div class="list-info">
+                        <i class="fas fa-briefcase"></i> <span>{{item.CompanyName }}</span>
+                        <i class="fas fa-map-marker"></i> <span>{{item.Location }}</span>
+                        <i class="fas fa-laptop"></i> <span>{{numberOnly(item.MinExp) }} - {{numberOnly(item.MaxExperience) }} Years</span>
+                        <i class="fas fa-calendar-alt"></i> <span>{{item.PostDate | date: 'mediumDate'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

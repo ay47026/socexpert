@@ -1,0 +1,56 @@
+<div class="navbar fixed-top navbar-expand-md navbar-light bg-white">
+  <nav class="container-fluid ">
+    <a class="navbar-brand" routerLink="/home">
+      <img src="assets/soc-logo.png" alt="SOC Logo">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [collapse]="isCollapsed" [isAnimated]="true" id="navbarSupportedContent">
+      <ul class="navbar-nav ">
+       
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home"> Job listing <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home"> Are you a recruiter post for job <span class="sr-only">(current)</span></a>
+        </li>
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link"  href="javascript:void(0);">
+            <i class="fas fa-search pr-4"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown" dropdown *ngIf="isLoggedIn">
+          <a class="nav-link dropdown-toggle" dropdownToggle  role="button" >
+            Welcome {{firstName}}
+          </a>
+          <div class="dropdown-menu dropdown-menu-right"  *dropdownMenu aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      <div class="form-inline ml-2 mr-2" *ngIf="userRole !== ''" >
+        <a routerLink="/job-seeker/post-job" *ngIf="userRole === '1'" class="btn btn-secondary">Post a new job</a>
+        <a routerLink="/recruiter/post-job" *ngIf="userRole === '2'" class="btn btn-secondary">Post a new job</a>
+      </div>
+      <div class="form-inline"  *ngIf="!isLoggedIn">
+        <a routerLink="login" class="btn btn-outline-secondary"> <i class="fas fa-user "></i> Login</a>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="container-fluid pt-0" id="main-content">
+  <router-outlet></router-outlet>
+</div>
+<footer class="footer pt-1 pb-1">
+  <div class="container">
+      &copy; {{copyrightYear}} SOC Experts. All rights reserved. | <a href="">Privacy Policy</a> | <a href="">Terms and Conditions</a>
+  </div>
+</footer>

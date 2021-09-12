@@ -1,0 +1,72 @@
+
+<div class="row">
+    <div class="col-md-4 p-0 ">
+        <img src="assets/p1.jpeg" alt="" width="100%">
+    </div>
+    <div class="col-md-4 p-0 border">
+        <img src="assets/p2.jpeg" alt="" width="100%">
+    </div>
+    <div class="col-md-4 p-0">
+        <img src="assets/p3.jpeg" alt="" width="100%">
+    </div>
+</div>
+
+<div class="row filter-col p-2">
+    <div class="col-8 d-flex flex-row justify-content-start align-item-center">
+        <h4>Filter By:</h4>
+       <div class="form-group w-100">
+
+                    <input type="text" class="form-control" placeholder="Search by key work">
+                  </div>
+                  <div class="form-group w-100">
+     
+                    <input type="text" class="form-control" placeholder="Search by any things">
+                  </div>
+                    <button class="btn btn-outline-secondary ml-3">Refine</button>
+    </div>
+</div>
+<div class="row p-3">
+    <div class="col-md-8">
+        <div class="listing-outer" *ngIf="listing">
+            <div *ngFor="let item of listing; let i = index;" [routerLink]="['../detail', item.Id, item.Title ]"
+                class="single-listing p-2 d-flex mb-2">
+                <div class="flex-shrink-1 align-self-center">
+                    <div class="company-logo-outer d-flex">
+                        <img [src]="item.Logo" alt="" class="align-self-center img-logo img-fluid">
+                    </div>
+                </div>
+                <div class="pl-1 align-self-center">
+                    <h4>{{item.Title}}</h4>
+                    <div class="list-info">
+                        <i class="fas fa-briefcase"></i> <span>{{item.CompanyName }}</span>
+                        <i class="fas fa-map-marker"></i> <span>{{item.Location }}</span>
+                        <i class="fas fa-laptop"></i> <span>{{numberOnly(item.MinExp) }} - {{numberOnly(item.MaxExperience) }} Years</span>
+                        <i class="fas fa-calendar-alt"></i> <span>{{item.PostDate | date: 'mediumDate'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="listing-outer" *ngIf="isLoading">
+            <div class="single-listing p-2 d-flex mb-2" *ngFor="let i of loader">
+                <div class="flex-shrink-1 align-self-center">
+                    <div class="company-logo-outer d-flex">
+                        <ngx-skeleton-loader count="1" appearance="circle"></ngx-skeleton-loader>
+                    </div>
+                </div>
+                <div class="pl-1 align-self-center">
+                    <ngx-skeleton-loader count="1" [theme]="{ height: '28px', width: '75%', 'margin-bottom': '0.5rem'}" animation="pulse"></ngx-skeleton-loader>
+                    <div>
+                        <ngx-skeleton-loader count="4" [theme]="{ height: '24px', width: '100px', 'margin-bottom': '0', 'margin-right': '10px'}" animation="pulse"></ngx-skeleton-loader>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="col-md-4">
+        <h2 class="mb=2">Featured Employers</h2>
+        <img src="assets/side-image.jpg" class="img-fluid" alt="">
+    </div>
+</div>
